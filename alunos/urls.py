@@ -22,11 +22,10 @@ from cadastro.api import viewsets as cadastroviewsets
 
 route = routers.DefaultRouter()
 
-route.register(r'cadastro/', cadastroviewsets.CadastroViewSet, basename='Cadastro')
-
+route.register(r'cadastro', cadastroviewsets.CadastroViewSet, basename='Cadastro')
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('')
+    path('', include(route.urls))
 ]
